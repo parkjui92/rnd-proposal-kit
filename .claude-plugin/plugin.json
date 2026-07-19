@@ -1,0 +1,22 @@
+{
+  "name": "rnd-proposal-kit",
+  "description": "정부 R&D 과제 제안서(연구개발계획서) 초안을 쓰는 에이전트 팀. RFP 분석(요구·평가지표·배점 구조화, 과제유형 4분류) → 목차·평가대응표 설계 → 설계검토 게이트 → 근거조사 → 평가지표 정조준 집필 → 초안검수 → 한글 .hwpx 변환. A five-agent team for Korean government R&D proposals: RFP analysis, evaluation-criteria response mapping, two-stage gates, HWPX output.",
+  "version": "0.9.0",
+  "author": {
+    "name": "Jui Park",
+    "url": "https://github.com/parkjui92-tech"
+  },
+  "homepage": "https://github.com/parkjui92-tech/rnd-proposal-kit",
+  "repository": "https://github.com/parkjui92-tech/rnd-proposal-kit",
+  "license": "Apache-2.0",
+  "keywords": [
+    "rnd-proposal",
+    "rfp-analysis",
+    "grant-writing",
+    "agent-team",
+    "verification-gate",
+    "hwpx",
+    "korean",
+    "claude-code-plugin"
+  ]
+}
