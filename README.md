@@ -30,7 +30,7 @@ RFP 분석(rfp-analyst: 요구·평가지표·배점·※단서 급소, 과제�
 ## 설치·사용
 
 ```
-/plugin marketplace add parkjui92-tech/rnd-proposal-kit
+/plugin marketplace add parkjui92/rnd-proposal-kit
 /plugin install rnd-proposal-kit@rnd-proposal-kit
 ```
 
@@ -52,7 +52,7 @@ RFP 분석(rfp-analyst: 요구·평가지표·배점·※단서 급소, 과제�
 
 ## 시리즈
 
-다른 킷: [policy-research-kit](https://github.com/parkjui92-tech/policy-research-kit) · [socsci-paper-kit](https://github.com/parkjui92-tech/socsci-paper-kit) · 단독 검증 스킬: [fact-verify](https://github.com/parkjui92-tech/fact-verify) · [paper-proofread](https://github.com/parkjui92-tech/paper-proofread) · [form-tailor](https://github.com/parkjui92-tech/form-tailor) · [report-to-brief](https://github.com/parkjui92-tech/report-to-brief)
+다른 킷: [policy-research-kit](https://github.com/parkjui92/policy-research-kit) · [socsci-paper-kit](https://github.com/parkjui92/socsci-paper-kit) · 단독 검증 스킬: [fact-verify](https://github.com/parkjui92/fact-verify) · [paper-proofread](https://github.com/parkjui92/paper-proofread) · [form-tailor](https://github.com/parkjui92/form-tailor) · [report-to-brief](https://github.com/parkjui92/report-to-brief)
 
 ## 라이선스
 
