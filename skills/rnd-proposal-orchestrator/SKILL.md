@@ -14,10 +14,10 @@ description: "정부 R&D 과제 제안서 초안을 에이전트 팀으로 작�
 | 팀원 | 타입 | 역할 | 스킬 | 출력 |
 |------|------|------|------|------|
 | rfp-analyst | rfp-analyst | 공고/RFP 분석, 목차·평가대응표 | rnd-rfp-analysis | `01_rfp_analysis.md` |
-| proposal-reviewer | proposal-reviewer | (모드1) 설계 게이트 / (모드2) 초안 검수 | rnd-proposal-review | `01b_design_gate.md`, `04_review_report.md` |
-| research-investigator | research-investigator | 외부 조사·기존자료 분석, 근거 수집 | rnd-research | `02_research.md` |
-| proposal-writer | proposal-writer | 본문 초안 집필 | rnd-proposal-writing | `03_proposal_draft.md` |
-| hwpx-exporter | hwpx-exporter | 한글 hwpx 변환 | rnd-hwpx-export | `05_proposal.hwpx` |
+| proposal-reviewer | proposal-reviewer | (모드1) 설계 게이트 / (모드2) 초안 검수 | rnd-proposal-review | `02_design_gate.md`, `05_review.md` |
+| research-investigator | research-investigator | 외부 조사·기존자료 분석, 근거 수집 | rnd-research | `03_evidence.md` |
+| proposal-writer | proposal-writer | 본문 초안 집필 | rnd-proposal-writing | `04_proposal.md` |
+| hwpx-exporter | hwpx-exporter | 한글 hwpx 변환 | rnd-hwpx-export | `06_proposal.hwpx` |
 
 모든 팀원은 기본적으로 세션 모델을 상속해 스폰한다(품질 우선 시 `model: "opus"` — 공개판 실행 노트 참조). 검수관(reviewer)은 파이프라인에서 **두 번** 등판한다(설계 후·초안 후).
 
@@ -55,7 +55,7 @@ description: "정부 R&D 과제 제안서 초안을 에이전트 팀으로 작�
 
 1. rfp-analyst가 공고를 분석해 필수 요구사항·평가지표·배점을 추출하고, 제안서 **목차 + 평가대응표**를 설계해 `01_rfp_analysis.md`에 정리한다.
 2. rfp-analyst가 reviewer에게 "설계 검토 요청"을 SendMessage로 보낸다.
-3. reviewer(모드1)가 `01`을 검토해 `01b_design_gate.md`에 판정(승인/조건부/반려)을 쓴다 — 필수 요구↔목차 매핑, 고배점 항목 커버리지, 평가대응표 구체성을 본다.
+3. reviewer(모드1)가 `01`을 검토해 `02_design_gate.md`에 판정(승인/조건부/반려)을 쓴다 — 필수 요구↔목차 매핑, 고배점 항목 커버리지, 평가대응표 구체성을 본다.
 4. 반려·조건부면 rfp-analyst가 `01`을 개정 → 재검토. **최대 2회.** 2회 후에도 미승인 항목은 "설계 잔여 리스크"로 기록하고 진행한다.
 5. **★ 목차 사용자 승인 게이트 (필수)** — 설계 게이트를 통과하면, 리더는 **목차(섹션) + 평가대응표 요약**을 사용자에게 제시하고 승인을 받는다. (검수관의 게이트는 "득점 가능성"을, 이 게이트는 "사용자 의도·전략 부합"을 본다.) 과제명·핵심 문안(제목/추진배경/목적 톤)이 미확정이면 이 시점에 **복수 후보(강조점 병기, 간결안 상위)**로 제시해 선택받는다.
    - 사용자가 목차를 수정·추가·삭제하면 rfp-analyst가 `01`에 반영 후 다시 제시한다.
@@ -66,16 +66,16 @@ description: "정부 R&D 과제 제안서 초안을 에이전트 팀으로 작�
 **실행 방식:** investigator 단독 (병렬 조사 가능)
 
 1. rfp-analyst가 승인 목차의 "근거가 필요한 지점·조사 우선순위"를 research-investigator에게 전달한다(배점 높은 항목 우선).
-2. research-investigator는 외부 조사(시장·기술·정책·선행연구) + 기존자료 분석을 수행해 `02_research.md`에 출처와 함께 정리한다. 미확보 항목은 명시한다.
+2. research-investigator는 외부 조사(시장·기술·정책·선행연구) + 기존자료 분석을 수행해 `03_evidence.md`에 출처와 함께 정리한다. 미확보 항목은 명시한다.
 3. 조사를 백그라운드로 위임한 동안 리더(또는 작성가)는 초안 골격을 **〔조사 반영〕 슬롯**과 함께 선작성해 두고, 조사 반환 시 통합한다. 조사 완료 알림은 사용자 승인 신호로 간주하지 않는다.
 4. 완료 시 proposal-writer에게 알린다.
 
 ### Phase 5: 집필 + 초안검수 (생성-검증 루프 ②)
 **실행 방식:** writer ↔ reviewer(모드2) 피드백 루프
 
-1. proposal-writer가 `01`(승인 목차·평가대응표)·`02`(근거)·사용자 메모를 종합해 `03_proposal_draft.md`를 작성한다.
-2. reviewer(모드2)가 `03`을 `01`·`02`와 교차검증하고 `04_review_report.md`에 수정 요청을 작성한다(요구사항 교차검증·평가지표 대응·논리/정량성·교열).
-3. writer가 [필수]·[권고] 지적을 반영해 `03`을 개정한다. **최대 2회 반복.** 동일 항목 2회 미해결은 "잔여 리스크"로 기록하고 진행한다.
+1. proposal-writer가 `01`(승인 목차·평가대응표)·`03`(근거)·사용자 메모를 종합해 `04_proposal.md`를 작성한다.
+2. reviewer(모드2)가 `04`를 `01`·`03`과 교차검증하고 `05_review.md`에 수정 요청을 작성한다(요구사항 교차검증·평가지표 대응·논리/정량성·교열).
+3. writer가 [필수]·[권고] 지적을 반영해 `04`를 개정한다. **최대 2회 반복.** 동일 항목 2회 미해결은 "잔여 리스크"로 기록하고 진행한다.
    > **운영 유의(검증된 사항):** 백그라운드로 재개(SendMessage)된 서브에이전트는 Write/Edit 권한이 거부될 수 있다. 따라서 writer 수정 루프는 **전경(foreground) Agent 호출**로 실행하거나, 검수관이 승인한 비창작성 수정안을 **오케스트레이터(리더)가 직접 Edit로 반영**한다. 사용자 입력이 필요한 항목(예: 연구진 실적)은 `[보강 필요]`로 남긴다.
 4. 검수 통과 시 reviewer가 "초안 승인"을 리더와 hwpx-exporter에게 알린다.
 
@@ -85,7 +85,7 @@ description: "정부 R&D 과제 제안서 초안을 에이전트 팀으로 작�
 1. hwpx-exporter가 승인된 `03_`을 입력으로 받는다. 대형 문서 변환은 리더 컨텍스트 보호를 위해 **전경 서브에이전트에 위임**(파일을 읽어 변환·검증 후 결과만 회신)한다.
 2. `00_input/`에 발주처 지정 양식이 있으면 폼 채우기 방식, 없으면 표준 생성 방식으로 .hwpx를 만든다.
 3. 변환 후 자체 검증(정량 스위트 — rnd-hwpx-export 참조)하고, 분량·양식 제약을 점검한다.
-4. 최종 산출물을 사용자 지정 경로에, 사본을 `_workspace/05_proposal.hwpx`에 저장한다.
+4. 최종 산출물을 사용자 지정 경로에, 사본을 `_workspace/06_proposal.hwpx`에 저장한다.
 5. 부속 조사자료 docx는 하이퍼링크를 보존해 생성하고 **링크 개수를 검증**한다(예: "하이퍼링크 80개 클릭 가능"). URL의 `?utm_source=` 류 꼬리는 제거한다.
 6. **재생성 시 동일 변환가 재호출**: hwpx 재생성 요청은 새 에이전트가 아니라 이전 변환 방법을 아는 기존 변환가를 SendMessage로 재호출해 이어서 처리한다(방법 재학습 비용 제거).
 
@@ -102,21 +102,21 @@ description: "정부 R&D 과제 제안서 초안을 에이전트 팀으로 작�
   rfp-analyst ──01_rfp_analysis.md (목차·평가대응표)──┐
        ▲  │ SendMessage(설계 검토 요청)               │
   (개정,최대2회) ▼                                    ▼
-  proposal-reviewer(모드1) ──01b_design_gate.md (게이트)
+  proposal-reviewer(모드1) ──02_design_gate.md (게이트)
        │ "설계 승인" → ★ 목차 사용자 승인
        ▼  (승인 후에만 진행)
-  research-investigator ──02_research.md──┐
+  research-investigator ──03_evidence.md──┐
                                           ▼
-                          proposal-writer ──03_proposal_draft.md──┐
+                          proposal-writer ──04_proposal.md──┐
                                 ▲  │                               │
                   SendMessage(수정요청) │ (최대 2회 루프)            ▼
-                          proposal-reviewer(모드2) ──04_review_report.md
+                          proposal-reviewer(모드2) ──05_review.md
                                 │ "초안 승인"                       │
                                 ▼                                  │
                           hwpx-exporter ◀───────────03 승인본───────┘
                                 │
                                 ▼
-                          05_proposal.hwpx → 사용자 지정 경로
+                          06_proposal.hwpx → 사용자 지정 경로
 ```
 
 ## 에러 핸들링
@@ -146,11 +146,11 @@ description: "정부 R&D 과제 제안서 초안을 에이전트 팀으로 작�
 6. Phase 5: writer 초안 → reviewer 모드2 수정요청 2건 → writer 반영 → 승인
 7. Phase 6: 지정 양식에 채워 hwpx 생성, 재파싱 검증 통과
 8. Phase 7: 데스크탑에 `<과제명>_제안서.hwpx` + 평가대응 요약 보고
-9. 예상 결과: 지정 경로에 hwpx 생성, `_workspace/`에 01~05 산출물 보존
+9. 예상 결과: 지정 경로에 hwpx 생성, `_workspace/`에 01~06 산출물 보존
 
 ### 에러 흐름
 1. Phase 3에서 reviewer 모드1이 "필수 요구(국제협력 계획)가 어느 섹션에도 매핑 안 됨"을 반려 → analyst가 목차에 섹션 추가 → 승인
-2. Phase 4에서 research-investigator가 웹 접근 실패로 시장 근거 일부 미확보 → `02_research.md`에 미확보 항목 기록
+2. Phase 4에서 research-investigator가 웹 접근 실패로 시장 근거 일부 미확보 → `03_evidence.md`에 미확보 항목 기록
 3. writer가 해당 부분을 `[보강 필요]`로 표시하고 진행
 4. Phase 5 검수에서 확인, 잔여 리스크로 수용
 5. 최종 보고에 "시장 근거 일부 미확보 — 추가 조사 권장" 명시

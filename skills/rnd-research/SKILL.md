@@ -47,7 +47,7 @@ description: "정부 R&D 제안서의 근거를 마련하는 리서치 스킬. �
 
 ## 출력 구조
 
-`_workspace/02_research.md`:
+`_workspace/03_evidence.md`:
 
 ```markdown
 # 리서치 근거: <과제명>

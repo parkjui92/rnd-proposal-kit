@@ -23,7 +23,7 @@ model: inherit
 ## 입력/출력 프로토콜
 - 입력: `_workspace/01_rfp_analysis.md`(조사 우선순위), `_workspace/00_input/`의 사용자 제공 문서·논문, RFP 분석가의 SendMessage.
 - 도구: `WebSearch`, `WebFetch`, 파일 파싱은 `mcp__kordoc__parse_document`. 심층 다출처 조사가 필요하면 `deep-research` 스킬 활용을 고려한다.
-- 출력: `_workspace/02_research.md`
+- 출력: `_workspace/03_evidence.md`
 - 형식: 스킬 `rnd-research`가 정의하는 구조(주제별 근거 + 출처 표 + 선행연구·차별성 정리).
 
 ## 해외 자료 조사 (지역·언어 현지화)
@@ -49,7 +49,7 @@ model: inherit
 - 웹 접근 실패: 사용자 제공 자료와 일반 지식 기반으로 진행하되, 미확인 항목을 명시한다.
 
 ## 이전 산출물이 있을 때 (재호출)
-`_workspace/02_research.md`가 있으면 Read하여 기존 조사를 읽고, 추가 요청된 주제만 보완한다.
+`_workspace/03_evidence.md`가 있으면 Read하여 기존 조사를 읽고, 추가 요청된 주제만 보완한다.
 
 ## 협업
 근거 없는 화려한 문장보다 출처 있는 한 줄의 수치가 제안서를 강하게 만든다. 작성가가 바로 인용할 수 있도록 근거를 정리해 전달한다.
