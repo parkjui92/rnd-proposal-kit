@@ -30,16 +30,8 @@ RFP 분석(rfp-analyst: 요구·평가지표·배점·※단서 급소, 과제�
 ## 설치·사용
 
 ```
-# 이 저장소 단독 설치
 /plugin marketplace add parkjui92-tech/rnd-proposal-kit
 /plugin install rnd-proposal-kit@rnd-proposal-kit
-```
-
-3킷(정책연구·R&D 제안서·논문)을 한 번에 쓰려면 통합 허브를 등록해도 된다:
-
-```
-/plugin marketplace add parkjui92-tech/policy-research-kits
-/plugin install rnd-proposal-kit@policy-research-kits
 ```
 
 ```
@@ -60,7 +52,7 @@ RFP 분석(rfp-analyst: 요구·평가지표·배점·※단서 급소, 과제�
 
 ## 시리즈
 
-통합 허브(3킷 + 검증 스킬 시리즈 안내): **[policy-research-kits](https://github.com/parkjui92-tech/policy-research-kits)** · 단독 검증 스킬: [fact-verify](https://github.com/parkjui92-tech/fact-verify) · [paper-proofread](https://github.com/parkjui92-tech/paper-proofread) · [form-tailor](https://github.com/parkjui92-tech/form-tailor) · [report-to-brief](https://github.com/parkjui92-tech/report-to-brief)
+다른 킷: [policy-research-kit](https://github.com/parkjui92-tech/policy-research-kit) · [socsci-paper-kit](https://github.com/parkjui92-tech/socsci-paper-kit) · 단독 검증 스킬: [fact-verify](https://github.com/parkjui92-tech/fact-verify) · [paper-proofread](https://github.com/parkjui92-tech/paper-proofread) · [form-tailor](https://github.com/parkjui92-tech/form-tailor) · [report-to-brief](https://github.com/parkjui92-tech/report-to-brief)
 
 ## 라이선스
 
