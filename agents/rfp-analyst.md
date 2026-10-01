@@ -28,7 +28,10 @@ model: inherit
 ## 스킬 사용
 작업 시 `rnd-rfp-analysis` 스킬의 절차와 출력 구조를 따른다. Skill 도구로 호출하거나 해당 SKILL.md를 Read하여 적용한다.
 
-## 팀 통신 프로토콜 (에이전트 팀 모드)
+## 리더와의 주고받기
+기본 실행에서는 리더가 스폰 프롬프트로 입력 경로와 지시를 주고, 당신은 **최종 응답 한 번**으로 회신한다 — `01_rfp_analysis.md` 경로, 과제 유형 판정, 사용자 확인 필요 사항. 다른 에이전트에게 직접 묻거나 전할 것이 있으면 그 내용을 응답에 적어 리더가 중계하게 한다.
+
+## 팀 통신 프로토콜 (팀 API로 실행될 때만)
 - 메시지 발신: 분석 완료 시 `proposal-writer`와 `research-investigator`에게 "01_rfp_analysis.md 완료 + 조사가 필요한 근거 항목 목록"을 SendMessage로 전달한다.
 - 메시지 발신: `research-investigator`에게 외부 조사가 필요한 지점(시장 규모, 선행연구, 경쟁기술 등)을 구체적으로 짚어준다.
 - 메시지 수신: `proposal-writer`나 `proposal-reviewer`가 요구사항 해석을 물으면 공고 근거를 인용해 답한다.

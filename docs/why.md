@@ -54,7 +54,7 @@ README에서 덜어낸 배경과 사용 시나리오를 여기 둔다.
 
 그리고 이 표는 파이프라인 내내 다시 쓰인다. 조사관은 "조사 필요 근거" 열을 작업 지시로 받고, 작성가는 이 표를 옆에 두고 쓰며, 검수관은 게이트 두 곳에서 이 표를 기준으로 판정한다.
 
-**실제로 게이트가 잡아낸 것** — 동봉 데모에서, 게이트1은 필수요구인 개인정보·보안이 추진체계 절에 뭉뚱그려져 독립 소절도 평가대응표 행도 없다는 점을 [필수]로 걸어 §5.3으로 승격시켰고, 고배점 30점 항목의 지면이 20점 항목과 3%p밖에 차이 나지 않는다는 점을 지적해 배분을 다시 잡게 했다. 집필이 끝난 뒤에는 게이트2가 차별성 대비표의 비교 대상이 공고가 말한 "유사 플랫폼"이 아니라 범용 AI 도구·대기업 자체구축이라는 점을 잡아냈다 — 표는 그럴듯하게 채워져 있었지만 요구를 빗나간 표였다. 판정 원문은 [`02_design_gate.md`](../examples/rnd-proposal-demo/02_design_gate.md)·[`05_review.md`](../examples/rnd-proposal-demo/05_review.md)에 그대로 있다.
+**실제로 게이트가 잡아낸 것** — 동봉 데모에서, 게이트1은 필수요구인 개인정보·보안이 추진체계 절에 뭉뚱그려져 독립 소절도 평가대응표 행도 없다는 점을 [필수]로 걸어 §5.3으로 승격시켰고, 고배점 30점 항목의 지면이 20점 항목과 5%p밖에 차이 나지 않는다는 점을 지적해 배분을 다시 잡게 했다. 집필이 끝난 뒤에는 게이트2가 차별성 대비표의 비교 대상이 공고가 말한 "유사 플랫폼"이 아니라 범용 AI 도구·대기업 자체구축이라는 점을 잡아냈다 — 표는 그럴듯하게 채워져 있었지만 요구를 빗나간 표였다. 판정 원문은 [`02_design_gate.md`](../examples/rnd-proposal-demo/02_design_gate.md)·[`05_review.md`](../examples/rnd-proposal-demo/05_review.md)에 그대로 있다.
 
 > **A/B 실측에 대해.** 이 저장소에는 순정 Claude Code와의 대조 감사가 아직 없다. 같은 설계 철학으로 만든 자매 킷에는 있으므로, 게이트 구조가 실제로 무엇을 바꾸는지 수치로 보고 싶다면 [policy-research-kit의 감사 기록](https://github.com/parkjui92/policy-research-kit/blob/main/docs/vanilla-vs-kit.md)을 참고하면 된다. 그쪽 수치를 이 킷의 성능으로 옮겨 읽지는 말 것.
 
@@ -205,7 +205,7 @@ RFP 분석 (rfp-analyst — 필수요구·평가지표·배점·※단서 급소
 ## 요구사항·폴백·한계 (전문)
 
 - **`.hwpx` 변환**에는 [kordoc](https://github.com/chrisryugj/kordoc) MCP가 필요하다. 없으면 마크다운 산출까지 진행하고 변환만 보류한다.
-- **팀 API가 없는 환경**에서는 전경(foreground) Agent 순차 호출로 동일 파이프라인이 실행된다. Phase 순서와 산출물 계약은 같다.
+- **실행 방식**: 메인 세션이 에이전트를 단계 순서대로 불러 쓰고 전달을 중계한다. 따로 켤 기능이 없다. 에이전트 팀 API(실험 기능)로도 돌릴 수 있으나 그쪽은 완주 검증 기록이 없다. Phase 순서와 산출물 계약은 같다.
 - 설치·키 설정·모델 선택 상세는 [runtime-notes.md](runtime-notes.md).
 - **게이트는 오류를 줄이지 없애지 못한다.** 검수관도 집필자와 같은 계열 모델이라 같은 맹점을 공유할 수 있다. 최종 책임은 사람에게 있다.
 - **이 저장소에는 순정 대비 A/B 실측이 없다.** 자매 킷 [policy-research-kit](https://github.com/parkjui92/policy-research-kit/blob/main/docs/vanilla-vs-kit.md)의 감사 기록을 참고하되, 그 수치는 그 킷의 것이다.
@@ -282,7 +282,7 @@ What the table does is simple. **A blank cell means the outline is wrong.** A ru
 
 The table then gets reused throughout the pipeline. The investigator receives the "evidence to gather" column as a work order, the writer keeps the table open while drafting, and the reviewer rules against it at both gates.
 
-**What the gates actually caught.** In the bundled demo, gate 1 flagged as [required] that a mandatory requirement — personal-data protection and security — had been folded into the execution-capacity section with neither its own subsection nor a row in the response map, and had it promoted to §5.3. It also flagged that the 30-point items had only a 3-percentage-point page advantage over the 20-point items, forcing the allocation to be redone. After drafting, gate 2 caught that the differentiation comparison table was benchmarking against general-purpose AI tools and in-house enterprise builds rather than the "similar platforms" the call actually specified — the table was plausibly filled in, but aimed at the wrong target. The rulings are preserved verbatim in [`02_design_gate.md`](../examples/rnd-proposal-demo/02_design_gate.md) and [`05_review.md`](../examples/rnd-proposal-demo/05_review.md).
+**What the gates actually caught.** In the bundled demo, gate 1 flagged as [required] that a mandatory requirement — personal-data protection and security — had been folded into the execution-capacity section with neither its own subsection nor a row in the response map, and had it promoted to §5.3. It also flagged that the 30-point items had only a 5-percentage-point page advantage over the 20-point items, forcing the allocation to be redone. After drafting, gate 2 caught that the differentiation comparison table was benchmarking against general-purpose AI tools and in-house enterprise builds rather than the "similar platforms" the call actually specified — the table was plausibly filled in, but aimed at the wrong target. The rulings are preserved verbatim in [`02_design_gate.md`](../examples/rnd-proposal-demo/02_design_gate.md) and [`05_review.md`](../examples/rnd-proposal-demo/05_review.md).
 
 > **On A/B measurement.** This repository does not yet contain a head-to-head audit against vanilla Claude Code. A sister kit built on the same design philosophy does, so if you want numbers on what the gate structure actually changes, see [the policy-research-kit audit](https://github.com/parkjui92/policy-research-kit/blob/main/docs/vanilla-vs-kit.md). Those figures belong to that kit — don't read them as this one's performance.
 
@@ -434,7 +434,7 @@ The orchestrator `rnd-proposal-orchestrator` coordinates them. Partial re-runs (
 ## Requirements, fallbacks, limitations (full)
 
 - **`.hwpx` conversion** requires the [kordoc](https://github.com/chrisryugj/kordoc) MCP server. Without it, the pipeline still runs and stops at Markdown.
-- **Without team-API support**, the same pipeline runs via sequential foreground `Agent` calls. The phase order and the artifact file contract are identical.
+- **How it runs**: the main session spawns the agents in phase order and relays between them — nothing experimental needs to be enabled. It can also run on the agent-team API (experimental), but that path has no end-to-end verification record. The phase order and the artifact file contract are identical.
 - Setup, keys, and model selection: [runtime-notes.md](runtime-notes.md).
 - **Gates reduce errors; they don't eliminate them.** The reviewer runs on a model from the same family as the writer and can share its blind spots. Final responsibility stays with a human.
 - **This repository has no measured A/B against vanilla.** See the sister kit's [audit record](https://github.com/parkjui92/policy-research-kit/blob/main/docs/vanilla-vs-kit.md) — but those figures are that kit's, not this one's.

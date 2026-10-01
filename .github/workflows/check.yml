@@ -1,0 +1,24 @@
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: 문서 정합성 (버전·참조·파일 번호·금지 문구)
+        run: python3 scripts/check_kit.py
+      - name: hwpx 검증기 자체검사
+        run: python3 skills/rnd-hwpx-export/scripts/verify_hwpx.py --selftest
+      - name: 예제 변환본이 전처리본과 일치하는가
+        run: >
+          python3 skills/rnd-hwpx-export/scripts/verify_hwpx.py
+          examples/rnd-proposal-demo/04b_for_hwpx.md
+          examples/rnd-proposal-demo/06_proposal.hwpx
