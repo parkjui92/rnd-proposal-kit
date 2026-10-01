@@ -1,6 +1,6 @@
 # rnd-proposal-kit
 
-[![Version](https://img.shields.io/badge/version-0.10.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.11.0-blue.svg)](CHANGELOG.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Claude Code](https://img.shields.io/badge/Claude_Code-Plugin-purple.svg)
 
@@ -38,7 +38,7 @@ Call document → Outline + points table → 🚦Check 1 → ★You confirm the 
 
 It **stops twice.** The first stop catches a bad outline. Deadlines are short, and once research and drafting are finished against the wrong structure there's no time left to go back — so it checks before writing. The second stop reviews the finished draft, because polished writing is hard to doubt on your own. That review goes to **a different AI that wrote none of it.** It can read but not edit, so nobody ever signs off on their own work. What it rules stays on disk as a file.
 
-Things these checks have actually caught. A mandatory requirement — personal data and security — that had neither its own subsection nor a row in the table (→ promoted to §5.3). The 30-point items getting only 3 percentage points more space than the 20-point ones (→ reallocated). And a differentiation table that compared against general-purpose AI tools and in-house enterprise builds instead of the "similar platforms" the call document actually named — a table that looked filled in but answered the wrong question.
+Things these checks have actually caught. A mandatory requirement — personal data and security — that had neither its own subsection nor a row in the table (→ promoted to §5.3). The 30-point items getting only 5 percentage points more space than the 20-point ones (→ reallocated). And a differentiation table that compared against general-purpose AI tools and in-house enterprise builds instead of the "similar platforms" the call document actually named — a table that looked filled in but answered the wrong question.
 
 The second stop also **opens the sources.** While building the example, two sources the research stage had marked "verified" failed here: one link led to a different article that did not contain the figure, and the other was a forecast made ten years ago. Problems like these — ones that **must not be submitted as they are** — are not waved through when the revision limit is reached; it stops and asks you what to do.
 
