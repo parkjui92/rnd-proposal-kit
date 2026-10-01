@@ -75,7 +75,9 @@ RFP 분석 (rfp-analyst — 필수요구·평가지표·배점·※단서 급소
 
 **게이트가 두 번인 이유.** 게이트1은 *비용*을 막는다 — 목차가 틀린 채로 조사와 집필이 끝나면 마감 안에 되돌릴 방법이 없다. 게이트2는 *과신*을 막는다 — 다 쓴 초안은 그럴듯해 보여서 자기 글을 의심하기 어렵다. 검수관은 **집필자와 다른 에이전트**이고 READ-ONLY라, 자기가 쓴 것을 자기가 통과시키는 구조가 원천적으로 성립하지 않는다. 판정은 파일로 남는다.
 
-무한 차단도 막아 둔다. 같은 항목을 두 번 지적해도 미해결이면 "잔여 리스크"로 기록하고 진행한다. 마감이 있는 문서에서는 완벽보다 제출이 먼저다.
+무한 차단도 막아 둔다. 같은 항목을 두 번 지적해도 미해결이면 "잔여 리스크"로 기록하고 진행한다. 마감이 있는 문서에서는 완벽보다 제출이 먼저다. 다만 이 면제는 **점수를 잃는 결함(득점형)에만** 적용된다. 필수 요구 미충족이나 원문과 다른 수치처럼 **이대로 제출하면 안 되는 결함(자격형)**은 횟수가 찼다고 넘어가지 않고, 사용자에게 올려 보강·삭제·위험 수용 중 하나를 고르게 한 뒤 그 결정을 파일에 남긴다.
+
+게이트2는 출처도 직접 연다. 조사 파일과 초안을 맞춰 보는 것만으로는 조사 단계에서 잘못 옮긴 수치를 잡지 못한다 — 두 파일이 서로 일치하기 때문이다. 동봉 데모에서도 조사 단계가 "검증 완료"로 적은 출처 두 건이 원문 대조에서 걸렸다. 하나는 URL이 가리키는 기사에 그 수치가 없었고, 하나는 10년 전 전망치였다.
 
 **과제유형 4분류.** 공고를 읽고 유형을 먼저 판정한다 — 유형마다 목차 기준과 집필 골격이 다르기 때문이다.
 
@@ -101,7 +103,7 @@ RFP 분석 (rfp-analyst — 필수요구·평가지표·배점·※단서 급소
 
 공고문(.hwpx/.pdf/.docx/URL)을 파싱해 필수요구·배점·※단서·양식 제약을 뽑고, 과제유형을 판정한 뒤 목차와 평가대응표를 만든다. 게이트1이 매핑 구멍을 점검하고, **그다음 멈춰서 당신에게 목차를 보여준다.** 승인하면 조사 → 집필 → 게이트2 → hwpx로 이어진다.
 
-파이프라인은 두 번 멈춘다(목차 승인, 그리고 최종 보고). 그사이는 자리를 비워도 된다.
+파이프라인은 두 번 멈춘다(목차 승인, 그리고 최종 보고). 그사이는 자리를 비워도 된다. 검수에서 자격형 결함이 끝내 풀리지 않았을 때만 한 번 더 멈춰 어떻게 할지 묻는다.
 
 ### 시나리오 2 — 위탁연구·수립지원 과제
 
@@ -166,7 +168,7 @@ RFP 분석 (rfp-analyst — 필수요구·평가지표·배점·※단서 급소
 | `02_design_gate.md` | 게이트1 판정 — 무엇을 왜 [필수]로 걸었는지 |
 | `03_evidence.md` | 근거장부 — 사실별 출처·신뢰도 등급·미확보 항목 |
 | `04_proposal.md` | 본문 초안 |
-| `05_review.md` | 게이트2 검수 — 요구사항 충족 체크표·평가지표별 점검·수정요청·잔여 리스크 |
+| `05_review.md` | 게이트2 검수 — 차단 기준·요구사항 충족 체크표·평가지표별 점검·출처 대조표·수정요청·잔여 리스크·사용자 판단 기록 |
 | `06_proposal.hwpx` | 최종 제출본 |
 
 *(번호는 동봉 예제 폴더 기준. 실행하면 작업 디렉토리의 `_workspace/`에 같은 순서로 쌓인다.)*
@@ -301,7 +303,9 @@ Call/RFP analysis (rfp-analyst — requirements, rubric, weights, ※ conditions
 
 **Why two gates.** Gate 1 protects *cost* — once research and drafting finish against a wrong outline, there is no way back inside the deadline. Gate 2 protects against *overconfidence* — a finished draft looks convincing, and doubting your own text is hard. The reviewer is a **different agent from the writer** and is read-only, so a structure where someone signs off on their own work simply cannot form. Rulings persist as files.
 
-Deadlock is also prevented. If an item has been raised twice and is still unresolved, it is recorded as "residual risk" and the pipeline proceeds. For a document with a deadline, submitting beats perfecting.
+Deadlock is also prevented. If an item has been raised twice and is still unresolved, it is recorded as "residual risk" and the pipeline proceeds. For a document with a deadline, submitting beats perfecting. This waiver applies **only to defects that cost points**. Defects that make the proposal unfit to submit — an unmet mandatory requirement, a figure that differs from its source — are not waived by the loop limit; they go to the user, who chooses to supply material, delete or soften the claim, or accept the risk, and that decision is written to the review file.
+
+Gate 2 also opens the sources. Comparing the draft against the evidence file cannot catch a figure that was copied wrongly during research, because the two files agree with each other. In the bundled demo, two sources the research stage had marked "verified" failed the check: one URL pointed to an article that did not contain the figure, the other was a ten-year-old forecast.
 
 **4-way project typing.** The type is determined from the call before anything else, because the outline standard and the drafting skeleton differ by type.
 
@@ -327,7 +331,7 @@ I've also attached notes on our institution's strengths and prior track record.
 
 The call document (.hwpx/.pdf/.docx/URL) is parsed for mandatory requirements, point weights, ※ conditions, and format constraints; the project type is determined; then the outline and evaluation-response map are built. Gate 1 checks the mapping for holes, and **then it stops and shows you the outline.** Approve, and it continues into research → drafting → gate 2 → hwpx.
 
-The pipeline pauses twice (outline approval, then the final report). You can step away in between.
+The pipeline pauses twice (outline approval, then the final report). You can step away in between. It pauses one more time only if a disqualifying defect is still open after review.
 
 ### Scenario 2 — A commissioned-research or policy-formulation project
 
@@ -393,7 +397,7 @@ The investigator attaches both a source and a **confidence grade** to every figu
 | `02_design_gate.md` | Gate 1 ruling — what was flagged as [required] and why |
 | `03_evidence.md` | Evidence ledger — source and confidence grade per fact, plus unsourced items |
 | `04_proposal.md` | Body draft |
-| `05_review.md` | Gate 2 review — requirement checklist, rubric-by-rubric check, revision requests, residual risk |
+| `05_review.md` | Gate 2 review — blocking criteria, requirement checklist, rubric-by-rubric check, source check table, revision requests, residual risk, user decision record |
 | `06_proposal.hwpx` | Final submission file |
 
 *(Numbering follows the bundled example folder. On a real run these accumulate in the same order under `_workspace/` in your working directory.)*
