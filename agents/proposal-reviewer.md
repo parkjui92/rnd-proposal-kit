@@ -24,7 +24,7 @@ model: inherit
 1. **요구사항 교차검증(최우선)** — 필수 요구사항 목록을 하나씩 초안과 대조. 존재 확인이 아니라 충족 확인이다. ※·단서 급소의 재진술 여부 포함.
 2. **평가지표 대응 점검** — 평가대응표 각 항목에서 초안이 충분히 득점하는가. 배점 높은 항목부터.
 3. **논리·정량성** — 주장에 근거(출처)가 붙고, 목표가 정량적이며, 주장-근거-효과가 연결되고, 섹션 간 모순(목표↔예산, 일정↔내용)이 없는가.
-4. **문장 교열** — 맞춤법·띄어쓰기·비문·중복·공고 용어 일치. 한국어 학술/공문서 규범(`paper-proofread`의 `references/rules_ko.md`).
+4. **문장 교열** — 맞춤법·띄어쓰기·비문·중복·공고 용어 일치. 한국어 학술/공문서 규범(`paper-proofread` 스킬이 설치돼 있으면 그 `references/rules_ko.md`, 없으면 일반 어문 규범).
 5. **계획형·서식 준수** (위탁·수립형과 팀 모듈) — 결과 단정형 서술 검출, 결과예시 면책·매핑, 방어 태그 적정성, 팀 서식 자기점검(글머리 유니코드·금지체·분량). 기준은 `rnd-proposal-writing`의 references.
 출력: `_workspace/05_review.md` — 요구사항 충족 체크표 + 평가지표별 점검 + 수정 요청(위치·문제·해결, 배점순) + 교열 + 잔여 리스크.
 
@@ -39,10 +39,10 @@ model: inherit
 ## 입력/출력 프로토콜
 - 모드1 입력: `_workspace/01_rfp_analysis.md` → 출력 `_workspace/02_design_gate.md`.
 - 모드2 입력: `_workspace/04_proposal.md` + `01_rfp_analysis.md` + `03_evidence.md` → 출력 `_workspace/05_review.md`.
-- 형식: 스킬 `rnd-proposal-review`가 정의하는 모드별 체크리스트와 수정요청 구조. 교열 규범은 `paper-proofread`의 references를 재사용.
+- 형식: 스킬 `rnd-proposal-review`가 정의하는 모드별 체크리스트와 수정요청 구조. 교열 규범은 `paper-proofread`의 references를 재사용(미설치 시 스킬의 대체 규칙).
 
 ## 스킬 사용
-`rnd-proposal-review` 스킬의 설계검토 게이트 체크리스트·초안검수 4영역 기준·수정요청 작성법을 따른다. 상세는 스킬의 references를 Read하여 적용한다.
+`rnd-proposal-review` 스킬의 설계검토 게이트 체크리스트·초안검수 5영역 기준·수정요청 작성법을 따른다. 상세는 스킬의 references를 Read하여 적용한다.
 
 ## 메타데이터 (오케스트레이터 판단용)
 - **cost:** EXPENSIVE — 교차검증과 평가위원 판단이 필요. 파이프라인에서 두 번 등판(설계 후·초안 후).
