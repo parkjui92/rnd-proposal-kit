@@ -27,11 +27,23 @@ claude mcp add kordoc -- npx -y kordoc@latest mcp
 
 ## 4. 해외 조사 현지화 — geo-search (선택)
 
-조사 스킬 3종(policy-research / rnd-research / paper-research)에는 SERP API 래퍼(`scripts/geo_search.py`)가 내장돼 있다. 기본 WebSearch가 US 로케일 고정인 한계를 보완해 "일본 사례는 일본어로, 독일 통계는 독일어로" 검색한다.
+조사 스킬 `rnd-research`에는 SERP API 래퍼(`scripts/geo_search.py`)가 내장돼 있다. 기본 WebSearch가 US 로케일 고정인 한계를 보완해 "일본 사례는 일본어로, 독일 통계는 독일어로" 검색한다.
 
-- 키 설정(둘 중 하나): `SERPER_API_KEY`(serper.dev, 권장) 또는 `SERPAPI_KEY`(serpapi.com, 무료 100/월). 환경변수 또는 `~/.serper/key` 파일.
+- 키 설정(둘 중 하나): `SERPER_API_KEY`(serper.dev, 권장) 또는 `SERPAPI_KEY`(serpapi.com, 무료 100/월). 환경변수 또는 키 파일(`~/.serper/key` / `~/.serpapi/key`). 두 서비스의 키는 호환되지 않는다.
 - 키가 없으면 스킬이 자동으로 WebSearch 폴백을 쓴다 — 필수 아님.
 
 ## 5. 산출물 워크스페이스
 
-모든 킷은 작업 디렉토리에 `_workspace/`를 만들어 단계 산출물(설계→게이트 판정→근거→초안→검수→최종)을 파일로 남긴다. 재실행·부분 수정("3장만 다시", "hwpx만 재생성")은 이 파일들을 기준으로 동작하므로 **`_workspace/`를 지우지 말 것**. 저장소에 커밋하지 않도록 `.gitignore`에 포함돼 있다.
+이 킷은 작업 디렉토리에 `_workspace/`를 만들어 단계 산출물(설계→게이트 판정→근거→초안→검수→최종)을 파일로 남긴다. 재실행·부분 수정("3장만 다시", "hwpx만 재생성")은 이 파일들을 기준으로 동작하므로 **`_workspace/`를 지우지 말 것**. 저장소에 커밋하지 않도록 `.gitignore`에 포함돼 있다.
+
+## 6. 외부 의존성 — 무엇이 필수이고, 없으면 어떻게 되나
+
+이 킷이 스킬·에이전트 문서에서 이름으로 부르는 외부 자산 전부다. 여기 없는 것은 킷 안에 들어 있다.
+
+| 자산 | 종류 | 쓰는 곳 | 필수 여부 | 없을 때 |
+|---|---|---|---|---|
+| [kordoc](https://github.com/chrisryugj/kordoc) | MCP 서버 | 공고문·기존자료 파싱(.hwp/.hwpx/.docx), `.hwpx` 변환 | 한글 파일을 읽거나 내려면 필수 | 입력은 PDF·마크다운·텍스트·URL로 주면 된다. 산출은 마크다운까지 나오고 변환만 보류한다 |
+| [paper-proofread](https://github.com/parkjui92/paper-proofread) | 스킬 | 초안검수의 교열 규범(`references/rules_ko.md`) | 선택 | 일반 어문 규범으로 교열하고 검수 보고에 "규범 파일 미참조"라고 남긴다 |
+| [fact-verify](https://github.com/parkjui92/fact-verify) | 스킬 | 출처의 체계적 검증(4-Tier·재인용 체인) | 선택 | 조사 스킬의 실검증 절차(실검색+원문 접속)를 출처별로 수행한다 |
+| deep-research | 스킬 | 다출처 심층 조사 | 선택 | 조사 영역을 분할해 직접 수행한다 |
+| Serper 또는 SerpAPI 키 | API 키 | 해외 자료의 현지 로케일 검색 | 선택 | 기본 WebSearch(영문 쿼리)로 폴백한다 |

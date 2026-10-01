@@ -1,6 +1,6 @@
 # rnd-proposal-kit
 
-[![Version](https://img.shields.io/badge/version-0.9.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.10.0-blue.svg)](CHANGELOG.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Claude Code](https://img.shields.io/badge/Claude_Code-Plugin-purple.svg)
 
@@ -61,6 +61,8 @@ Commercialization is worth 30 points and it's getting far too little space   ←
 After reading the call document it **first sorts out what kind of project this is** — technology development, a commissioned or policy-formulation study, an application to a support program, or one person's share of a joint proposal. Four types, because the outline standard and the shape of the writing differ for each.
 
 If the agency mandates its own form (.hwp/.hwpx), drop it into the `_workspace/00_input/` folder and the outline follows that form's own field order. Prompts work in Korean or English; the proposal itself comes out in Korean.
+
+If the deadline is close, just say "make it fast." Research is split and run in parallel, and the body is written in batches starting with the highest-scoring sections. If a stage runs far over its expected time, it shows you what is finished so far and asks whether to continue. Mechanical steps such as format conversion run on a lighter model from the start, but **the reviewing AI is never downgraded.**
 
 That last example line matters: when it shows you the outline, asking for changes rebuilds it right there. **It's the cheapest moment to change direction.** Between the two stops you can step away.
 

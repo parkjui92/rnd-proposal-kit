@@ -23,7 +23,7 @@ model: sonnet
 
 ## 입력/출력 프로토콜
 - 입력: `_workspace/01_rfp_analysis.md`(조사 우선순위), `_workspace/00_input/`의 사용자 제공 문서·논문, RFP 분석가의 SendMessage.
-- 도구: `WebSearch`, `WebFetch`, 파일 파싱은 `mcp__kordoc__parse_document`. 심층 다출처 조사가 필요하면 `deep-research` 스킬 활용을 고려한다.
+- 도구: `WebSearch`, `WebFetch`, 파일 파싱은 `mcp__kordoc__parse_document`. 심층 다출처 조사가 필요하고 `deep-research` 스킬이 설치돼 있으면 활용을 고려한다(선택).
 - 출력: `_workspace/03_evidence.md`
 - 형식: 스킬 `rnd-research`가 정의하는 구조(주제별 근거 + 출처 표 + 선행연구·차별성 정리).
 
@@ -37,7 +37,7 @@ model: sonnet
 - 전제: `SERPER_API_KEY`(권장) 또는 `SERPAPI_KEY` 환경변수. **미설정 시** geo_search는 안내만 하고 종료 → 그때는 `WebSearch`(영문 쿼리)로 폴백. 상세: rnd-research 스킬 동봉 `scripts/geo-search-README.md`.
 
 ## 스킬 사용
-`rnd-research` 스킬의 절차와 출력 구조를 따른다. 대규모 조사는 `deep-research` 스킬을 활용할 수 있다.
+`rnd-research` 스킬의 절차와 출력 구조를 따른다. 대규모 조사는 `deep-research` 스킬(선택, 설치돼 있을 때)을 활용할 수 있다.
 
 ## 팀 통신 프로토콜 (에이전트 팀 모드)
 - 메시지 수신: `rfp-analyst`로부터 조사 우선순위를 받는다.

@@ -57,7 +57,7 @@ description: "정부 R&D 제안서를 두 단계에서 검수하는 스킬. (모
 - 섹션 간 모순은 없는가 (목표와 예산, 일정과 내용 등)
 
 ### 4. 문장 교열
-맞춤법·띄어쓰기·비문·중복·공고 용어 일치를 점검한다. 한국어 학술/공문서 규범은 `paper-proofread` 스킬의 `references/rules_ko.md`를 Read하여 적용한다.
+맞춤법·띄어쓰기·비문·중복·공고 용어 일치를 점검한다. 한국어 학술/공문서 규범은 `paper-proofread` 스킬(별도 설치)이 있으면 그 `references/rules_ko.md`를 Read하여 적용한다. 없으면 국립국어원 한글 맞춤법·표준어 규정 수준의 일반 어문 규범으로 교열하고, 검수 보고 교열 절 머리에 "규범 파일 미참조"라고 적는다.
 
 ### 5. 계획형·서식 준수 (해당 유형일 때)
 위탁·정책수립형과 팀 모듈은 추가로 점검한다 (기준: `rnd-proposal-writing`의 references/plan-style-module.md·team-module-mode.md):
