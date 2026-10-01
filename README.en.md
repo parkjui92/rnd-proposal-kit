@@ -40,6 +40,8 @@ It **stops twice.** The first stop catches a bad outline. Deadlines are short, a
 
 Things these checks have actually caught. A mandatory requirement — personal data and security — that had neither its own subsection nor a row in the table (→ promoted to §5.3). The 30-point items getting only 3 percentage points more space than the 20-point ones (→ reallocated). And a differentiation table that compared against general-purpose AI tools and in-house enterprise builds instead of the "similar platforms" the call document actually named — a table that looked filled in but answered the wrong question.
 
+The second stop also **opens the sources.** While building the example, two sources the research stage had marked "verified" failed here: one link led to a different article that did not contain the figure, and the other was a forecast made ten years ago. Problems like these — ones that **must not be submitted as they are** — are not waved through when the revision limit is reached; it stops and asks you what to do.
+
 ## Install
 
 ```
